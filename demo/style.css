@@ -1,0 +1,64 @@
+html, body{
+	margin:0;
+	padding:0;
+}
+#wrapper{
+	width:100%;
+	max-width:468px;
+	margin:0 auto;
+	padding:6px 0 16px;
+	text-align:center;
+}
+@media all and (max-width: 500px) {
+	body{
+		margin:0 16px;
+	}
+}
+h1{
+	font:bold 24px/30px "Arial", Arial, Sans-Serif;
+}
+label{
+	width:100%;
+	padding:10px 0 0;
+	font:bold 16px/20px "Arial", Arial, Sans-Serif;
+	text-align:center;
+	display:block;
+}
+textarea{
+	width:100%;
+	min-height:100px;
+	margin:0 auto;
+	border:1px solid #000;
+	outline:0;
+	font:12px monospace;
+	display:block;
+}
+input[type=text]{
+	width:100%;
+	margin:0 auto;
+	border:1px solid #000;
+	outline:0;
+	font:12px monospace;
+	display:block;
+}
+button{
+	margin:10px auto 0;
+	padding:10px;
+	border:none;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+	-webkit-box-shadow:1px 1px 1px #000;
+	-moz-box-shadow:1px 1px 1px #000;
+	box-shadow:1px 1px 1px #000;
+	outline:0;
+	font-weight:bold;
+	background:#ccc;
+	display:inline-block;
+	cursor:pointer;
+}
+button:active{
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	box-shadow:none;
+}
