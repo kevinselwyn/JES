@@ -359,6 +359,8 @@
 				x = 0,
 				y = 0;
 
+			opts.input = opts.plaintext || opts.ciphertext;
+
 			error = this.error({
 				"opts": {
 					variable: opts,
@@ -370,8 +372,8 @@
 					conditions: [undefined, false, ""],
 					message: "Missing input"
 				},
-				"opts.pass": {
-					variable: opts.pass,
+				"opts.key": {
+					variable: opts.key,
 					conditions: [undefined, false, ""],
 					message: "Missing key"
 				},
@@ -387,7 +389,7 @@
 			}
 
 			blocks = this.toBlocks(opts.input, decrypt);
-			keys = this.keySchedule(this.toKey(opts.pass), 10);
+			keys = this.keySchedule(this.toKey(opts.key), 10);
 			iv = this.toKey(opts.iv);
 
 			for (i = 0, j = blocks.length; i < j; i += 1) {

@@ -4,10 +4,10 @@
 	"use strict";
 
 	window.onload = function () {
-		var input = document.getElementById("input"),
+		var plaintext = document.getElementById("plaintext"),
 			key = document.getElementById("key"),
 			iv = document.getElementById("iv"),
-			encrypted = document.getElementById("encrypted"),
+			ciphertext = document.getElementById("ciphertext"),
 			encrypt_btn = document.getElementById("encrypt"),
 			decrypt_btn = document.getElementById("decrypt"),
 			result = [],
@@ -20,8 +20,8 @@
 		encrypt_btn.onclick = function () {
 			results = [];
 			result = JES.encrypt({
-				input: input.value,
-				pass: key.value,
+				plaintext: plaintext.value,
+				key: key.value,
 				iv: iv.value
 			}, "hex/array");
 
@@ -29,20 +29,20 @@
 				results.push(result.slice(i, i + 16).join(", "));
 			}
 
-			encrypted.value = results.join(",\n");
+			ciphertext.value = results.join(",\n");
 		};
 
 		decrypt_btn.onclick = function () {
 			str = "";
-			arr = encrypted.value.replace(/\s/g, "").split(/,/);
+			arr = ciphertext.value.replace(/\s/g, "").split(/,/);
 
 			for (i = 0, l = arr.length; i < l; i += 1) {
 				str += String.fromCharCode(parseInt(arr[i], 16));
 			}
 
-			input.value = JES.decrypt({
-				input: str,
-				pass: key.value,
+			plaintext.value = JES.decrypt({
+				ciphertext: str,
+				key: key.value,
 				iv: iv.value
 			}, "ascii/string");
 		};
